@@ -5,3 +5,17 @@
   align-content: center;
   position: fixed;
 }
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+th {
+  padding: 0.4em;
+}
+
+td {
+  padding-left: 0.3em;
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Systematic Random Sampling</title>
   </head>
   <body>
@@ -35,10 +36,21 @@
 <script src="../scripts/Random.js"></script>
 
 <script>
-  const displaySample = arr => {
-    for (var i = 0; i < arr.length; i++) {
-      document.getElementById('output').innerHTML += `${arr[i]} <br />`;
-    }
+  const displaySample = sampleCollection => {
+    let sampleNumber = 0;
+    document.getElementById('output').innerHTML = `<table>
+      <tr>
+        <th>Sample Number</th>
+        <th>Sample Member</th>
+      </tr>
+      ${sampleCollection
+        .map(sample => {
+          sampleNumber++;
+          return `<tr><td>${sampleNumber}</td><td>${sample}</td></tr>`;
+        })
+        .join('')}
+      </table>
+      `;
   };
   const compute = () => {
     clearOutput();
