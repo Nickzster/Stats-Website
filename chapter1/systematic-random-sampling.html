@@ -7,7 +7,55 @@
     <title>Systematic Random Sampling</title>
   </head>
   <body>
-    <a href="../index.html">Go Back Home</a>
-    <h1>Chapter 1: Systematic Random Sampling</h1>
+    <header>
+      <a href="../index.html">Go Back Home</a>
+      <h1>Chapter 1: Systematic Random Sampling</h1>
+    </header>
+    <h3>Input</h3>
+    <div id="input">
+      <p>Population Size</p>
+      <input id="population" type="number" />
+      <p>Sample Size</p>
+      <input id="sample" type="number" />
+      <br />
+      <br />
+      <!-- <span>
+        Without Replacement?
+        <input id="wr" type="checkbox" checked="true" />
+      </span>
+      <br />
+      <br /> -->
+      <button onclick="compute()">Compute Sample</button>
+    </div>
+    <h3>Output</h3>
+    <div id="output"></div>
   </body>
 </html>
+
+<script src="../scripts/Random.js"></script>
+
+<script>
+  const displaySample = arr => {
+    for (var i = 0; i < arr.length; i++) {
+      document.getElementById('output').innerHTML += `${arr[i]} <br />`;
+    }
+  };
+  const compute = () => {
+    clearOutput();
+    let selectedSample = [];
+    // let replacement = document.getElementById('wr').checked;
+    let population = parseInt(document.getElementById('population').value, 10);
+    let sampleSize = parseInt(document.getElementById('sample').value, 10);
+    let m = Math.floor(population / sampleSize);
+    let k = generateRN(1, m);
+    selectedSample[0] = k;
+    for (var i = 1; i < sampleSize; i++) {
+      selectedSample[i] = k + i * m;
+    }
+    displaySample(selectedSample);
+  };
+
+  const clearOutput = () => {
+    document.getElementById('output').innerHTML = '';
+  };
+</script>

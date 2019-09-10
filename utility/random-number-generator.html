@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Systematic Random Sampling</title>
+  </head>
+  <body>
+    <header>
+      <a href="../index.html">Go Back Home</a>
+      <h1>Utility: Random Number Generator</h1>
+    </header>
+    <h3>Inputs</h3>
+    <p>Lower Bounds</p>
+    <input id="min" type="number" name="min" />
+    <p>Upper Bounds</p>
+    <input id="max" type="number" name="max" />
+    <p>Number of Random Numbers</p>
+    <input id="numberofnums" type="number" name="max" />
+    <br />
+    <br />
+    <button onclick="generateRandomNumbers()">Generate Random Numbers</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <h3>Output</h3>
+    <div id="output"></div>
+  </body>
+</html>
+
+<script src="../scripts/Random.js"></script>
+
+<script>
+  // document.getElementById('output').innerHTML
+  const generateRandomNumbers = () => {
+    clearOutput();
+    let min = document.getElementById('min').value;
+    let max = document.getElementById('max').value;
+    let numberOfNums = document.getElementById('numberofnums').value;
+    if (
+      min === null ||
+      min === undefined ||
+      max === null ||
+      max === undefined ||
+      numberOfNums === null ||
+      numberOfNums === undefined
+    )
+      document.getElementById('output').innerHTML = `Invalid Inputs.`;
+    for (var i = 0; i < numberOfNums; i++) {
+      document.getElementById('output').innerHTML += `${generateRN(
+        min,
+        max
+      )} <br />`;
+    }
+  };
+
+  const clearOutput = () => {
+    document.getElementById('output').innerHTML = '';
+  };
+</script>
