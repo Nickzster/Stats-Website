@@ -25,6 +25,7 @@
       <br />
       <br />
       <button onclick="calculate()">Compute Sample Standard Deviation</button>
+      <button onclick="clearOutput()">Clear Output</button>
     </div>
     <h3>Output</h3>
     <div id="output"></div>
@@ -36,7 +37,7 @@
 <script>
   const displaySolution = soln => {
     let sampleNumber = 0;
-    document.getElementById('output').innerHTML = `<table>
+    document.getElementById("output").innerHTML = `<table>
       <tr>
         <th>Sample Standard Deviation</th>
       </tr>
@@ -45,8 +46,12 @@
       `;
   };
 
+  const clearOutput = () => {
+    document.getElementById("output").innerHTML = "";
+  };
+
   const calculate = () => {
-    let dataStr = document.getElementById('data').value;
-    displaySolution(calculateSampleDeviation(dataStr.split(',')));
+    let dataStr = document.getElementById("data").value;
+    displaySolution(calculateSampleDeviation(dataStr.split(",")));
   };
 </script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Measures of Center</title>
+  </head>
+  <body>
+    <header>
+      <a href="../index.html">Go Back Home</a>
+      <h1>Measures Of Center: Mean, Median, Mode</h1>
+    </header>
+    <div id="input">
+      <h3>Inputs</h3>
+      <p>Data - Separate using a comma, no spaces.</p>
+      <p>Example: 42,24,15,9,20</p>
+      <textarea
+        id="data"
+        rows="10"
+        cols="50"
+        placeholder="Enter the data here"
+      ></textarea>
+      <br />
+      <br />
+      <button onclick="calculate()">Compute Mean, Median, Mode</button>
+      <button onclick="clearOutput()">Clear Output</button>
+    </div>
+    <h3>Output</h3>
+    <div id="output"></div>
+  </body>
+</html>
+
+<script src="../scripts/MeasuresOfCenter.js"></script>
+
+<script>
+  const display = arr => {
+    document.getElementById("output").innerHTML = `
+    <table>
+        <tr>
+          <th>Mean</th>
+          <td>${mean(arr)}</td>
+        </tr>
+        <tr>
+            <th>Median</th>
+            <td>${median(arr)}</td>
+        </tr>
+        <tr>
+          <th>Mode</th>
+          <td>WIP</td>
+        </tr>
+      </table>
+    `;
+  };
+
+  const clearOutput = () => {
+    document.getElementById("output").innerHTML = ``;
+  };
+
+  const calculate = () => {
+    const dataStr = document.getElementById("data").value;
+    display(dataStr.split(","));
+  };
+</script>
