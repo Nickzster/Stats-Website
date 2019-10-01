@@ -1,11 +1,11 @@
 const mean = arr => {
-  arr.sort();
   let sum = 0;
   arr.map(num => (sum += parseInt(num, 10)));
   return sum / arr.length;
 };
 
 const median = arr => {
+  arr.sort();
   if (arr.length % 2 === 1) {
     return parseInt(arr[(arr.length + 1) / 2 - 1], 10);
   } else {
