@@ -5,13 +5,13 @@ const mean = arr => {
 };
 
 const median = arr => {
-  arr.sort();
+  console.log(arr);
   if (arr.length % 2 === 1) {
     return parseInt(arr[(arr.length + 1) / 2 - 1], 10);
   } else {
     return (
-      (parseInt(arr[Math.floor((arr.length + 1) / 2)], 10) +
-        parseInt(arr[Math.ceil((arr.length + 1) / 2)], 10)) /
+      (parseInt(arr[Math.floor((arr.length + 1) / 2) - 1], 10) +
+        parseInt(arr[Math.ceil((arr.length + 1) / 2) - 1], 10)) /
       2
     );
   }
