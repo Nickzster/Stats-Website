@@ -1,4 +1,5 @@
 const mean = arr => {
+  arr.sort();
   let sum = 0;
   arr.map(num => (sum += parseInt(num, 10)));
   return sum / arr.length;
