@@ -36,7 +36,7 @@
 
 <script>
   const display = arr => {
-    for (var i = 0; i < arr.length; i++) arr[i] = parseInt(arr[i], 10);
+    for (var i = 0; i < arr.length; i++) arr[i] = parseFloat(arr[i]);
     arr.sort((a, b) => a - b);
     document.getElementById('output').innerHTML = `
     <table>
