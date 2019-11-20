@@ -1,16 +1,17 @@
 const mean = arr => {
   let sum = 0;
-  arr.map(num => (sum += parseInt(num, 10)));
+  arr.map(num => (sum += parseFloat(num)));
   return sum / arr.length;
 };
 
 const median = arr => {
+  console.log(arr);
   if (arr.length % 2 === 1) {
-    return parseInt(arr[(arr.length + 1) / 2 - 1], 10);
+    return parseFloat(arr[(arr.length + 1) / 2 - 1]);
   } else {
     return (
-      (parseInt(arr[Math.floor((arr.length + 1) / 2)], 10) +
-        parseInt(arr[Math.ceil((arr.length + 1) / 2)], 10)) /
+      (parseFloat(arr[Math.floor((arr.length + 1) / 2) - 1]) +
+        parseFloat(arr[Math.ceil((arr.length + 1) / 2) - 1])) /
       2
     );
   }

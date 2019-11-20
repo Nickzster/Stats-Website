@@ -36,7 +36,9 @@
 
 <script>
   const display = arr => {
-    document.getElementById("output").innerHTML = `
+    for (var i = 0; i < arr.length; i++) arr[i] = parseFloat(arr[i]);
+    arr.sort((a, b) => a - b);
+    document.getElementById('output').innerHTML = `
     <table>
         <tr>
           <th>Mean</th>
@@ -50,16 +52,20 @@
           <th>Mode</th>
           <td>WIP</td>
         </tr>
+        <tr>
+          <th>Length of Data</th>
+          <th>${arr.length}</th>
+        </tr>
       </table>
     `;
   };
 
   const clearOutput = () => {
-    document.getElementById("output").innerHTML = ``;
+    document.getElementById('output').innerHTML = ``;
   };
 
   const calculate = () => {
-    const dataStr = document.getElementById("data").value;
-    display(dataStr.split(","));
+    const dataStr = document.getElementById('data').value;
+    display(dataStr.split(','));
   };
 </script>
