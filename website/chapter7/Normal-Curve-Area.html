@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Area Under the Normal Curve</title>
+  </head>
+  <body>
+    <h1>Area Under the Normal Curve</h1>
+    <p>
+      In Chapter 7, one of the important relationships that are defined is that
+      the area under a section under the normal curve is directly proportional
+      to the probability and/or percentage of the specified observations.<br />
+      Utilizing this relationship, this tool allows you to enter a mean M, a
+      standard distribution S, and uses numerical integration to find the area
+      under the curve.
+    </p>
+    <h3>Inputs</h3>
+    <h4>Parameters</h4>
+    <input id="mean" type="number" placeholder="Mean" name="mean" />
+    <input
+      type="number"
+      id="stddist"
+      placeholder="Standard Distribution"
+      name="standarddistribution"
+    />
+    <h4>Range</h4>
+    <input id="left" type="number" placeholder="Leftmost value" name="left" />
+    <input
+      id="right"
+      type="number"
+      placeholder="Rightmost value"
+      name="right"
+    />
+    <input type="button" value="Calculate Area" onclick="computeArea()" />
+    <h3>Outputs</h3>
+    <div id="output" />
+  </body>
+  <script src="../scripts/numerical-integration/simpson.js"></script>
+
+  <script>
+    const displaySolution = soln => {
+      document.getElementById("output").innerHTML = `<table>
+      <tr>
+        <th>Area</th>
+      </tr>
+      <tr><td>${soln}</td></tr>
+      </table>
+      `;
+    };
+    const computeArea = () => {
+      displaySolution(
+        simpson(
+          parseFloat(document.getElementById("left").value),
+          parseFloat(document.getElementById("right").value),
+          parseFloat(document.getElementById("mean").value),
+          parseFloat(document.getElementById("stddist").value)
+        )
+      );
+    };
+  </script>
+</html>
