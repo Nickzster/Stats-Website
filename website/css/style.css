@@ -1,9 +1,17 @@
+* {
+  font-family: "Courier New", Courier, monospace;
+}
+
 .footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: center;
   position: fixed;
+}
+
+.small-container {
+  background-color: #e8e8e8;
 }
 
 table,
